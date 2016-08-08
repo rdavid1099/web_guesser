@@ -1,9 +1,25 @@
 <html>
   <head>Web Guesser</head>
   <body>
-    <center><h1>Guess the <strong>SECRET NUMBER</strong></h1></center>
+    <center><h1>Guess the SECRET NUMBER</h1></center>
     <p>
-      The secret number is <%= number %>
+      <%=
+      if params["guess"].nil?
+        "Please enter your guess."
+      else
+        "You entered #{params["guess"]}, please guess again."
+      end
+      %><br>
+      <form>
+        <input type = "text" name = "guess" />
+        <input type = "submit" value = "Guess!" />
+      </form>
     </p>
+    <p>
+      <%= message %>
+    </p>
+    <!-- <p>
+      "The secret number is <%= number %>."
+    </p> -->
   </body>
 </html>
